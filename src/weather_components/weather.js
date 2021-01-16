@@ -1,76 +1,62 @@
 const weather = (request) => {
-    const cityTag = document.querySelector('.city');
-    const countryTag = document.querySelector('.country');
-    const temperatureTag = document.querySelector('.temperature');
-    const weatherDescription = document.querySelector('.weather-description');
-    const feelsLikeTag = document.querySelector('.feel-like');
-    const windTag = document.querySelector('.wind');
-    const humidity = document.querySelector('.humidity');
-    const iconContainer = document.querySelector('.icon-container');
-    const searchError = document.querySelector('.search-error');
+  const cityTag = document.querySelector('.city');
+  const countryTag = document.querySelector('.country');
+  const temperatureTag = document.querySelector('.temperature');
+  const weatherDescription = document.querySelector('.weather-description');
+  const feelsLikeTag = document.querySelector('.feel-like');
+  const windTag = document.querySelector('.wind');
+  const humidity = document.querySelector('.humidity');
+  const iconContainer = document.querySelector('.icon-container');
+  const searchError = document.querySelector('.search-error');
 
-    const removeErrorMessage = () => {
-        if(searchError.classList.contains('search-error-error')) {
-            searchError.classList.remove('search-error-error');
-        }
-    };
+  const removeErrorMessage = () => {
+    if (searchError.classList.contains('search-error-error')) {
+      searchError.classList.remove('search-error-error');
+    }
+  };
 
-    const cityName = (data) => {
-        return data.name + ',';
-    };
-    
-    const countryName = (data) => {
-        return data.sys.country;
-    };
-    
-    const temperature = (data) => {
-        return `<span>${Math.trunc(data.main.temp)}</span>`;
-    };
+  const cityName = (data) => `${data.name},`;
 
-    const weatherDescription = (data) => {
-        return data.weather[0].description;
-    };
+  const countryName = (data) => data.sys.country;
 
-    const feelsLike = (data) => {
-        return Math.trunc(data.main.feels_like);
-    };
+  const temperature = (data) => `<span>${Math.trunc(data.main.temp)}</span>`;
 
-    const windForce = (data) => {
-        return data.wind.speed + ' Km/h';
-    };
+  const weatherDesc = (data) => data.weather[0].description;
 
-    const humidity = (data) => {
-        return data.main.humidity + '%';
-    };
+  const feelsLike = (data) => Math.trunc(data.main.feels_like);
 
-    const getIconURL = (data) => {
-        let icon = data.weather[0].icon;
-        return `http://openweathermap.org/img/wn/${icon}@2x.png`;
-    };
+  const windForce = (data) => `${data.wind.speed} Km/h`;
+
+  const getHumidity = (data) => `${data.main.humidity}%`;
+
+  const getIconURL = (data) => {
+    const { icon } = data.weather[0];
+    return `http://openweathermap.org/img/wn/${icon}@2x.png`;
+  };
 
 
-    const retrieveInfo = () => {
-        request.then(data => {
-            removeErrorMessage()
-            cityTag.textContent = cityName(data);
-            countryTag.textContent = countryName(data);
-            temperatureTag.innerHTML = temperature(data);
-            weatherDescription.textContent = weatherDescription(data);
-            feelsLikeTag.textContent = feelsLike(data);
-            windTag.textContent = windForce(data);
-            humidity.textContent = humidity(data);
-            
-            iconContainer.src = getIconURL(data);
-        }).catch(error => {
-            searchError.classList.add('search-error-error');
-        }); 
-    };
+  const retrieveInfo = () => {
+    request.then(data => {
+      removeErrorMessage();
+      cityTag.textContent = cityName(data);
+      countryTag.textContent = countryName(data);
+      temperatureTag.innerHTML = temperature(data);
+      weatherDescription.textContent = weatherDesc(data);
+      feelsLikeTag.textContent = feelsLike(data);
+      windTag.textContent = windForce(data);
+      humidity.textContent = getHumidity(data);
+
+      iconContainer.src = getIconURL(data);
+    }).catch(() => {
+      searchError.classList.add('search-error-error');
+    });
+  };
 
 
-    return {
-        retrieveInfo,
+  return {
+    retrieveInfo,
 
-    };
-}
+  };
+};
 
 export default weather;

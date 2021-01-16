@@ -1,40 +1,33 @@
 import './reset.css';
 import './style.css';
-import icon from './imgs/main_background.jpg'
+import './imgs/main_background.jpg';
 import config from '../../config';
 import Weather from './weather';
 import tools from './tools';
-import weather from './weather';
 
 let url;
 const searchInput = document.querySelector('.search-input');
-let defaultURL = tools.getSearchURL('Buga', config);
-let defaultResponse = tools.tryRequest(defaultURL);
-let currentWeather = Weather(defaultResponse);
+const defaultURL = tools.getSearchURL('Buga', config);
+const defaultResponse = tools.tryRequest(defaultURL);
+const currentWeather = Weather(defaultResponse);
 
 currentWeather.retrieveInfo();
 
 
 searchInput.addEventListener('keypress', (e) => {
-    
-    if(e.keyCode === tools.enterKeyCode()){
+  if (e.keyCode === tools.enterKeyCode()) {
+    const search = searchInput.value;
 
-        const search = searchInput.value;
-
-        if (search != '') {
-            
-            url = tools.getSearchURL(search, config);
-            
-            
-            let requestResponse = tools.tryRequest(url);
+    if (search !== '') {
+      url = tools.getSearchURL(search, config);
 
 
-            let currentWeather = Weather(requestResponse);
+      const requestResponse = tools.tryRequest(url);
 
-            currentWeather.retrieveInfo();
 
-            
-        }
+      const currentWeather = Weather(requestResponse);
+
+      currentWeather.retrieveInfo();
     }
+  }
 });
-

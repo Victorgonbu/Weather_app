@@ -1,44 +1,33 @@
 const tools = (() => {
- 
-const enterKeyCode = () => {
-    return 13;
-};
+  const enterKeyCode = () => 13;
 
-const getSearchURL = (search, config) => {
-       
-        let searchValues = search.split(' ').join(',');
+  const getSearchURL = (search, config) => {
+    const searchValues = search.split(' ').join(',');
 
-        return `https://api.openweathermap.org/data/2.5/weather?q=${searchValues}&appid=${config.API_KEY}&units=metric`;
-};
+    return `https://api.openweathermap.org/data/2.5/weather?q=${searchValues}&appid=${config.API_KEY}&units=metric`;
+  };
 
-async function  tryRequest (url) {
-
+  async function tryRequest(url) {
     let request;
     let jsonRequest;
 
     try {
-        request = await fetch(url);
-        if (request.status == '404'){
-            throw Error
-        };
-        jsonRequest = await request.json();
-
-        return jsonRequest;
-        
-
+      request = await fetch(url);
+      if (request.status === '404') {
+        throw Error;
+      }
+      jsonRequest = await request.json();
     } catch (error) {
-        console.log('error name');
+      return error;
     }
-    
+    return jsonRequest;
+  }
 
-};
-
-return {
+  return {
     enterKeyCode,
     getSearchURL,
-    tryRequest
-}
-
+    tryRequest,
+  };
 })();
 
 export default tools;
