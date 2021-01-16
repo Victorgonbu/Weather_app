@@ -2,7 +2,7 @@
 
 Weather app created using [openWeather](https://openweathermap.org/) API, Where users can access weather information about the location given in the top search bar.
 
-![screenshot](./src/weather_components/SCREENSHOT.png)
+![screenshot](./src/weather_components/imgs/SCREENSHOT.png)
 
 
 ## Built With
