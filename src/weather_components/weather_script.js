@@ -1,5 +1,6 @@
 import './reset.css';
 import './style.css';
+import icon from './imgs/main_background.jpg'
 import config from '../../config';
 import Weather from './weather';
 import tools from './tools';

@@ -1,6 +1,14 @@
 h1, h2 {
     text-transform: capitalize;
+
 }
+
+body {
+    background-image: url('./imgs/main_background.jpg');
+    background-position: center;
+    background-size: contain;
+}
+
 
 .navbar {
     box-sizing: border-box;
@@ -14,18 +22,43 @@ h1, h2 {
     align-items: center;
 }
 
+.search-bar {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 5px 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
 main {
     height: 85vh;
     border: 1px solid blue;
     display: flex;
     align-items: center;
+    position: relative;
 }
 footer {
     height: 5 vh;
 }
 .info-container {
-    border: 1px solid black;
+    top: 30%;
+    left: calc(50% - 400px);
+    position: absolute;
+    border: 1px solid white;
     height:fit-content;
+    color: white;
+    width: 400px;
 }
 
 .temperature  {
