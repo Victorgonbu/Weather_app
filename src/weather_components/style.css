@@ -1,0 +1,12 @@
+
+.navbar {
+    box-sizing: border-box;
+    border: 1px solid black;
+    width: 100vw;
+    text-align: right;
+    padding: 5px;
+}
+
+.info-container {
+    border: 1px solid black;
+}
