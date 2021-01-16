@@ -1,12 +1,53 @@
+h1, h2 {
+    text-transform: capitalize;
+}
 
 .navbar {
     box-sizing: border-box;
     border: 1px solid black;
     width: 100vw;
     text-align: right;
-    padding: 5px;
+    height: 10vh;
+    padding: 0 1em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
+main {
+    height: 85vh;
+    border: 1px solid blue;
+    display: flex;
+    align-items: center;
+}
+footer {
+    height: 5 vh;
+}
 .info-container {
     border: 1px solid black;
+    height:fit-content;
+}
+
+.temperature  {
+    position: relative;
+    border: 1px solid red;
+    width: fit-content;
+    padding: 1.2rem;
+    font-size: 7rem;
+}
+
+.temperature::after {
+    content: '\00B0 C';
+    font-size: 3rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.details {
+    display: flex;
+}
+
+.more-info {
+  
 }
