@@ -7,9 +7,12 @@ import tools from './tools';
 import weather from './weather';
 
 let url;
-
-
 const searchInput = document.querySelector('.search-input');
+let defaultURL = tools.getSearchURL('Buga', config);
+let defaultResponse = tools.tryRequest(defaultURL);
+let currentWeather = Weather(defaultResponse);
+
+currentWeather.retrieveInfo();
 
 
 searchInput.addEventListener('keypress', (e) => {
