@@ -15,7 +15,7 @@ const weather = (request) => {
     }
   };
 
-  const cityName = (data) => `${data.name},`;
+  const cityName = (data) => `${data.name}, `;
 
   const countryName = (data) => data.sys.country;
 
