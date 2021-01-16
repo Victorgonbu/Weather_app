@@ -17,6 +17,7 @@ const windTag = document.querySelector('.wind');
 const searchInput = document.querySelector('.search-input');
 const humidity = document.querySelector('.humidity');
 const iconContainer = document.querySelector('.icon-container');
+const searchError = document.querySelector('.search-error');
 
 searchInput.addEventListener('keypress', (e) => {
     
@@ -31,8 +32,12 @@ searchInput.addEventListener('keypress', (e) => {
             
             let requestResponse = tools.tryRequest(url);
 
+
+
             requestResponse.then(data => {
-                console.log(data);
+                if(searchError.classList.contains('search-error-error')) {
+                    searchError.classList.remove('search-error-error');
+                }
                 cityTag.textContent = data.name + ', ';
                 countryTag.textContent = data.sys.country;
                 temperatureTag.innerHTML = `<span>${Math.trunc(data.main.temp)}</span>`;
@@ -42,6 +47,9 @@ searchInput.addEventListener('keypress', (e) => {
                 humidity.textContent = data.main.humidity + '%';
                 let icon = data.weather[0].icon;
                 iconContainer.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+            }).catch(error => {
+                searchError.classList.add('search-error-error');
+
             });
         }
     }

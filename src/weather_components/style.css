@@ -1,18 +1,25 @@
+body {
+    background-image: url('./imgs/main_background.jpg');
+    background-position: 0;
+    background-size: cover;
+    font-family: 'Imbue', serif;
+}
+
 h1, h2 {
     text-transform: capitalize;
 
 }
 
-body {
-    background-image: url('./imgs/main_background.jpg');
-    background-position: center;
-    background-size: contain;
+h1{
+    font-size: 2em;
+    font-weight: 100;
 }
-
+h2 {
+    font-size: 3em;
+}
 
 .navbar {
     box-sizing: border-box;
-    border: 1px solid black;
     width: 100vw;
     text-align: right;
     height: 10vh;
@@ -43,7 +50,6 @@ body {
 
 main {
     height: 85vh;
-    border: 1px solid blue;
     display: flex;
     align-items: center;
     position: relative;
@@ -52,10 +58,9 @@ footer {
     height: 5 vh;
 }
 .info-container {
-    top: 30%;
+    top: 20%;
     left: calc(50% - 400px);
     position: absolute;
-    border: 1px solid white;
     height:fit-content;
     color: white;
     width: 400px;
@@ -63,7 +68,8 @@ footer {
 
 .temperature  {
     position: relative;
-    border: 1px solid red;
+   
+    
     width: fit-content;
     padding: 1.2rem;
     font-size: 7rem;
@@ -82,5 +88,50 @@ footer {
 }
 
 .more-info {
-  
+    border-left: 1px solid white;
+    width: 100%;
+    margin: 10px;
+    padding: 0 1em;
+    height: fit-content;
+    font-size: 1.2em;
+}
+
+.icon-container {
+    height: 80px;
+}
+
+.feel-like {
+    position: relative;
+    padding-right: 0.5em;
+}
+
+.feel-like::after {
+    content: '\00B0 C';
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+}
+
+.search-error {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 400;
+    color: white;
+    padding: 5px;
+    transform: scaleY(0);
+    transform-origin: top;
+    border-bottom: 1px solid red;
+    transition: 150ms ease-in-out;
+
+}
+
+
+.search-error-error {
+    transform: scaleY(1);
 }

@@ -11,15 +11,23 @@ const getSearchURL = (search, config) => {
         return `https://api.openweathermap.org/data/2.5/weather?q=${searchValues}&appid=${config.API_KEY}&units=metric`;
 };
 
-const tryRequest = async (url) => {
+async function  tryRequest (url) {
+
+    let request;
+    let jsonRequest;
 
     try {
-        let request = await fetch(url);
-        let jsonRequest = await request.json();
+        request = await fetch(url);
+        if (request.status == '404'){
+            throw Error
+        };
+        jsonRequest = await request.json();
+
         return jsonRequest;
+        
 
     } catch (error) {
-        console.log('error! NOT FOUND');
+        console.log('error name');
     }
     
 
