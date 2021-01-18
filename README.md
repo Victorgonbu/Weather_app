@@ -15,7 +15,6 @@ Weather app created using [openWeather](https://openweathermap.org/) API, Where 
 ## Live Demo
 
 [Live Demo Link]()
-Comming soon... 
 
 ## Getting Started
 
@@ -23,7 +22,9 @@ To get a local copy up and running follow these simple example steps.
 
 - Git clone https://github.com/Shaqri/Weather_app.git
 - Open the index.html inside the dist folder with your favorite browser
-- Explore the app
+- Explore the weather from all differents parts of the world you can imagine.
+
+To open the app remotely, just go and try the demo link above.
 
 ### Usage
 
