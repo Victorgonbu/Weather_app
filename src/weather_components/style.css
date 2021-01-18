@@ -67,6 +67,12 @@ footer {
   height: auto;
   color: white;
   width: 400px;
+  transform: scale(0);
+}
+
+.info-active {
+  transition: 200ms ease-in;
+  transform: scale(1);
 }
 
 .temperature {

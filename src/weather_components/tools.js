@@ -1,25 +1,22 @@
 const tools = (() => {
   const enterKeyCode = () => 13;
 
-  const getSearchURL = (search, config) => {
+  const getSearchURL = (search, API_KEY) => {
     const searchValues = search.split(' ').join(',');
 
-    return `https://api.openweathermap.org/data/2.5/weather?q=${searchValues}&appid=${config.API_KEY}&units=metric`;
+    return `https://api.openweathermap.org/data/2.5/weather?q=${searchValues}&appid=${API_KEY}&units=metric`;
   };
 
   async function tryRequest(url) {
     let request;
     let jsonRequest;
 
-    try {
       request = await fetch(url);
-      if (request.status === '404') {
-        throw Error;
+      if (request.ok === false) {
+        throw Error('not found');
       }
       jsonRequest = await request.json();
-    } catch (error) {
-      return error;
-    }
+    
     return jsonRequest;
   }
 

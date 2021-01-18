@@ -1,4 +1,5 @@
 const weather = (request) => {
+  const weatherInfoContainer = document.querySelector('.info-container');
   const cityTag = document.querySelector('.city');
   const countryTag = document.querySelector('.country');
   const temperatureTag = document.querySelector('.temperature');
@@ -9,7 +10,7 @@ const weather = (request) => {
   const iconContainer = document.querySelector('.icon-container');
   const searchError = document.querySelector('.search-error');
 
-  const removeErrorMessage = () => {
+  const removeErrorMessage = (searchError) => {
     if (searchError.classList.contains('search-error-error')) {
       searchError.classList.remove('search-error-error');
     }
@@ -34,10 +35,18 @@ const weather = (request) => {
     return `http://openweathermap.org/img/wn/${icon}@2x.png`;
   };
 
+  const popUpAnimation = (weatherInfoContainer) => {
+    weatherInfoContainer.classList.toggle('info-active');
+    setTimeout(() => {
+      weatherInfoContainer.classList.toggle('info-active')
+    }, 0);
+  };
+
 
   const retrieveInfo = () => {
     request.then(data => {
-      removeErrorMessage();
+      removeErrorMessage(searchError);
+      popUpAnimation(weatherInfoContainer);
       cityTag.textContent = cityName(data);
       countryTag.textContent = countryName(data);
       temperatureTag.innerHTML = temperature(data);
@@ -45,17 +54,16 @@ const weather = (request) => {
       feelsLikeTag.textContent = feelsLike(data);
       windTag.textContent = windForce(data);
       humidity.textContent = getHumidity(data);
-
       iconContainer.src = getIconURL(data);
-    }).catch(() => {
+    }).catch((error) => {
       searchError.classList.add('search-error-error');
+      return error;
     });
   };
 
 
   return {
     retrieveInfo,
-
   };
 };
 
