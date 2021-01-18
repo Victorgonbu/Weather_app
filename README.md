@@ -14,7 +14,7 @@ Weather app created using [openWeather](https://openweathermap.org/) API, Where 
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://shaqri.github.io/Weather_app/)
 
 ## Getting Started
 
