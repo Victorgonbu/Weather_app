@@ -10,9 +10,7 @@ const defaultURL = Tools.getSearchURL('Buga', process.env.API_KEY);
 const defaultResponse = Tools.tryRequest(defaultURL);
 const currentWeather = Weather(defaultResponse);
 
-
 currentWeather.retrieveInfo();
-
 
 searchInput.addEventListener('keypress', (e) => {
   if (e.keyCode === Tools.enterKeyCode()) {

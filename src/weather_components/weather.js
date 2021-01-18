@@ -36,7 +36,7 @@ const weather = (request) => {
   };
 
   const popUpAnimation = (weatherInfoContainer) => {
-    weatherInfoContainer.classList.toggle('info-active');
+    weatherInfoContainer.classList.remove('info-active');
     setTimeout(() => {
       weatherInfoContainer.classList.toggle('info-active');
     }, 0);
