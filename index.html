@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+    <script src="https://kit.fontawesome.com/ea4197418c.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Imbue:wght@100;300;500;700&display=swap" rel="stylesheet">
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search" class="search-input">
+                <div class="search-error">Sorry, City not found!</div>
+            </div>
+        </nav>    
+    </header>
+    <main >
+        <div class="info-container info-active">
+            <h1 class="weather-description"></h1>
+            <h2 class="city-info"><span class="city"></span><span class="country"></span></h1>
+            <div class="details">
+                <p class="temperature">
+                    
+                </p>
+                <div class="more-info">
+                    <div class="feeling">
+                        <span>Feels Like: </span>
+                        <span class="feel-like"></span>
+                    </div>
+
+                    <div>
+                        <span>Wind: </span>
+                        <span class="wind"></span>
+                    </div>
+
+                    <div>
+                        <span>Humidity: </span>
+                        <span class="humidity"></span>
+                    </div>
+                    
+                    <div class="">
+                        <img src="" alt="icon" class="icon-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="./index.bundle.js"></script>
+</body>
+</html>
