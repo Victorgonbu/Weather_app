@@ -1,4 +1,4 @@
-const tools = (() => {
+const Tools = (() => {
   const enterKeyCode = () => 13;
 
   const getSearchURL = (search, API_KEY) => {
@@ -8,15 +8,12 @@ const tools = (() => {
   };
 
   async function tryRequest(url) {
-    let request;
-    let jsonRequest;
+    const mainRequest = await fetch(url);
+    if (mainRequest.ok === false) {
+      throw Error('not found');
+    }
+    const jsonRequest = await mainRequest.json();
 
-      request = await fetch(url);
-      if (request.ok === false) {
-        throw Error('not found');
-      }
-      jsonRequest = await request.json();
-    
     return jsonRequest;
   }
 
@@ -27,4 +24,4 @@ const tools = (() => {
   };
 })();
 
-export default tools;
+export default Tools;
