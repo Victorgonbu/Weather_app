@@ -21,6 +21,7 @@ Weather app created using [openWeather](https://openweathermap.org/) API, Where 
 To get a local copy up and running follow these simple example steps.
 
 - Git clone https://github.com/Shaqri/Weather_app.git
+- Cd into the weather app folder.
 - Install all npm dependencies by running:
 ```
 $npm install 
